@@ -4,6 +4,8 @@ class graph:
         self.y_axis = y
 
     def optimize(self, jump):
+        if not jump:
+            return None
         # look for largest slope to find our "sweet spot"
         array = zip(self.x_axis, self.y_axis)
         slope_max = {
@@ -16,7 +18,7 @@ class graph:
         # our optimum number of users is.
         # this is founded on the assumption that the number of users will always
         # correlate to the query time.
-        # FIXME this function is not pythonic at all.
+        # TODO this function is not pythonic at all.
         while i < len(array):
             if i+jump >= len(array):
                 return slope_max
